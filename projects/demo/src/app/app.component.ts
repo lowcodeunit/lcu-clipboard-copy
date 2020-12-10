@@ -13,14 +13,14 @@ export class AppComponent implements OnInit {
   public Themes: Array<any>;
   public Title = 'LCU-Starter-App';
 
+  public test = "It really works!!!";
+
   constructor(
     protected themeService: ThemeColorPickerService
   ) { }
 
   public ngOnInit(): void {
-    this.Title = ClipboardCopyUtils.upperClipboardCopy(this.Title);
-    this.resetTheme();
-    this.setThemes();
+    
   }
 
   protected resetTheme(): void {

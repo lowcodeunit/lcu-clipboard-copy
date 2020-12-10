@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ClipboardCopyModel } from '../../models/clipboard-copy.model';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'lcu-clipboard-copy',
@@ -8,22 +7,35 @@ import { ClipboardCopyModel } from '../../models/clipboard-copy.model';
 })
 export class ClipboardCopyComponent implements OnInit {
 
-  @Input() public card: ClipboardCopyModel;
+  @Input('content-to-copy')
+  public ContentToCopy: any;
 
-  @Output() public cardSelected: EventEmitter<any>;
+  public Icon: string;
+
 
   constructor() {
-    this.cardSelected = new EventEmitter<any>();
+
+    this.Icon = 'content_copy';
+
   }
 
-  public ngOnInit(): void { }
+  public ngOnInit(): void { 
+  }
 
-  public SelectCard(url?: string): void {
-    this.cardSelected.emit();
 
-    if (url) {
-      window.open(url);
-    }
+  public Copy(val: string): void {
+    const el = document.createElement('textarea');
+    el.value = val;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    this.Icon = 'done'
+
+    setTimeout(() => {
+      this.Icon = 'content_copy'
+    }, 3000);
+
   }
 
 }
