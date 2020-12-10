@@ -34,7 +34,7 @@ export class ClipboardCopyComponent implements OnInit {
 
     setTimeout(() => {
       this.Icon = 'content_copy'
-    }, 5000);
+    }, 3000);
 
   }
 
