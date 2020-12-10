@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   public Themes: Array<any>;
   public Title = 'LCU-Starter-App';
 
-  public test = "It really works";
+  public test = "It really works!!!";
 
   constructor(
     protected themeService: ThemeColorPickerService
