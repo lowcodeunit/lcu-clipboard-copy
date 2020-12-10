@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ClipboardCopyModel } from '../../models/clipboard-copy.model';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'lcu-clipboard-copy',
@@ -67,9 +66,9 @@ export class ClipboardCopyComponent implements OnInit {
     try {
       var successful = document.execCommand('copy');
       var msg = successful ? 'successful' : 'unsuccessful';
-      console.log('Copying text command was ' + msg);
+      console.log('Copying text was ' + msg);
     } catch (err) {
-      console.log('Oops, unable to copy');
+      console.log('Unable to copy');
     }
   
     document.body.removeChild(textArea);
